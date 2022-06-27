@@ -9,6 +9,7 @@ class TicTacToe {
         int grid[][] = new int[3][3];
         
         Scanner read = new Scanner(System.in);
+        StrokeEvaluator SE = new StrokeEvaluator();
 
         for(int i = 0; i < 3; i++)
             for(int j = 0; j < 3; j++)
@@ -35,7 +36,13 @@ class TicTacToe {
                 i--;
             }
 
+            boolean win = SE.checkHorizontalStroke(grid) || SE.checkVerticalStroke(grid) || SE.checkDiagonalStroke(grid);
+
+            if(win) break;
+
         }
+
+        System.out.println("\n----- Game Over -----");
 
         read.close();
     }
