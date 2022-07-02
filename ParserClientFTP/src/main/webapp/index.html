@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Transaction Parser Client</title>
+
+        <!-- Bootstrap v5.2.0 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+        <!-- Google Fonts - Quicksand -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
+        <style>
+            *   {
+                font-family: 'Quicksand';
+            }
+            body {
+            	background-color: #F6FBF4;
+            }
+            form {
+            	background: #FFFFFF;
+                width: min-content;
+                margin: 0 auto;
+                margin-top: 150px;
+            }
+            #form-1, #form-2 {
+                width: 400px;
+            }
+        </style>
+
+        <script>
+            function shiftForm()    {
+                document.getElementById('form-1').style.display = "none";
+                document.getElementById('form-2').style.display = "block";
+            }
+        </script>
+
+    </head>
+
+    <body>
+
+        <form class="p-3 rounded border shadow" action="JsonServlet" method="POST">
+
+            <div id="form-1">
+
+                <legend class="text-center fw-bold fs-4"> FTP Server Credentials </legend>
+                <hr/>
+
+                <label class="form-label" for="host">&nbsp;&nbsp;Host Address</label>
+                <input class="form-control" name="host" id="host" type="text"/>
+
+                <label class="form-label mt-1" for="user">&nbsp;&nbsp;Username</label>
+                <input class="form-control" name="user" id="user" type="text"/>
+
+                <label class="form-label mt-1" for="pass">&nbsp;&nbsp;Password</label>
+                <input class="form-control" name="pass" id="pass" type="password"/>
+
+                <label class="form-label mt-1" for="port">&nbsp;&nbsp;Port Number</label>
+                <input class="form-control" name="port" id="port" type="number"/>
+
+                <span class="btn btn-primary mt-3 w-100" onclick="shiftForm()">NEXT</span>
+
+            </div>
+
+            <div id="form-2" style="display: none">
+
+                <legend class="text-center fw-bold fs-4"> Metadata & Preferences </legend>
+                <hr/>
+
+                <label class="form-label" for="url">&nbsp;&nbsp;API Endpoint</label>
+                <input class="form-control" name="url" id="url" type="url"/>
+
+                <label class="form-label mt-1" for="fname">&nbsp;&nbsp;Destination Folder</label>
+                <input class="form-control" name="fname" id="fname" type="text"/>
+
+                <label class="form-label mt-2" for="type">&nbsp;&nbsp;File Type</label><br/>
+                
+                <input class="form-check-input ms-2" type="radio" name="ftype" id="ftype" value="csv" checked />
+                <label class="form-check-label" for="ftype"> CSV </label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="form-check-input" type="radio" name="ftype" id="ftype" value="xls" />
+                <label class="form-check-label" for="ftype"> XLS / XLSX </label>
+
+                <br/>
+                <input class="btn btn-success mt-3 w-100" type="submit" value="SUBMIT"/>
+
+            </div>
+
+        </form>
+
+    </body>
+
+</html>
