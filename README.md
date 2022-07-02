@@ -17,3 +17,8 @@ Projects under scope:
 - Tic Tac Toe Game <br/>
       -     Console Based <br/>
       -     2D Matrix Gameplay <br/>
+
+- Parser Client FTP <br/>
+      -     FTP Client <br/>
+      -     Java Servlets <br/>
+      -     JSON RestAPI <br/>
